@@ -3,6 +3,7 @@ process ASTEROID {
     label 'process_asteroid'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/asteroid_3aae117d-disco_20e10c33:1.0.0':
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/asteroid_3aae117d-disco_20e10c33:1.0.0':
         '' }"
 
     publishDir(

@@ -3,6 +3,7 @@ process FASTTREE {
     label 'process_fasttree'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/fasttree_2.1.11:1.0.0':
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/fasttree_2.1.11:1.0.0':
         '' }"
 
     publishDir(

@@ -3,6 +3,7 @@ process ORTHOFINDER_MCL {
     label 'process_high'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/orthofinder_2.5.4:1.0.0' :
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/orthofinder_2.5.4:1.0.0' :
         '' }"
 
     input:

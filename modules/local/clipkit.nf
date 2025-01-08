@@ -3,6 +3,7 @@ process CLIPKIT {
     label 'process_low_cpu'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/clipkit_2.1.1-seqmagick_0.8.4:1.0.0' :
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/clipkit_2.1.1-seqmagick_0.8.4:1.0.0' :
         '' }"
 
     publishDir(

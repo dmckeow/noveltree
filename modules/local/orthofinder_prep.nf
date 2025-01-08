@@ -3,6 +3,7 @@ process ORTHOFINDER_PREP {
     label 'process_low'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/orthofinder_2.5.4:1.0.0' :
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/orthofinder_2.5.4:1.0.0' :
         '' }"
 
     publishDir(

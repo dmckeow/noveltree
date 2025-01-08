@@ -3,6 +3,7 @@ process ANNOTATE_UNIPROT {
     label 'process_medium'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/bioservices_1.10.0:1.0.0':
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/bioservices_1.10.0:1.0.0':
         '' }"
 
     publishDir(

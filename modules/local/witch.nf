@@ -3,9 +3,11 @@ process WITCH {
     label 'process_witch'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/witch_0.3.0:1.0.0' :
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/witch_0.3.0:1.0.0' :
         '' }"
     // TODO: address this issue (permission related errors) in future release
-    containerOptions = "--user root"
+    // I removed this because using apptainer removes the need ??
+    // containerOptions = "--user root"
 
     stageInMode = 'copy'
     publishDir(

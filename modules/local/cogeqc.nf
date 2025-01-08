@@ -3,6 +3,7 @@ process COGEQC {
     label 'process_medium'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/cogeqc_1.2.1:1.0.0':
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/cogeqc_1.2.1:1.0.0':
         '' }"
 
     publishDir(

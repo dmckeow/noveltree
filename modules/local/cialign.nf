@@ -3,6 +3,7 @@ process CIALIGN {
     label 'process_low_cpu'
 
     container "${ workflow.containerEngine == 'docker' ? 'arcadiascience/cialign_1.1.0:1.0.0' :
+        workflow.containerEngine == 'apptainer' ? 'arcadiascience/cialign_1.1.0:1.0.0' :
         '' }"
 
     publishDir(

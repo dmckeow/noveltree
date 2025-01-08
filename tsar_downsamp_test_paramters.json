@@ -1,0 +1,11 @@
+{
+    "input": "tsar_downsamp_test_samplesheet.csv",
+    "outdir": "results-tsar-downsamp-test",
+    "mcl_inflation": "1.25,3.75,5.25,6.75,8.25",
+    "min_num_spp_per_og": 4,
+    "min_num_grp_per_og": 2,
+    "max_copy_num_spp_tree": 3,
+    "max_copy_num_gene_trees": 5,
+    "download_annots": "minimal",
+    "tree_model": "LG+F+G4"
+  }
