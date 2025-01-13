@@ -13,7 +13,7 @@ process ORTHOFINDER_PREP {
     )
 
     input:
-    file(fasta)
+    path(fastas, stageAs: 'input/')
     val output_directory
 
     output:
@@ -27,11 +27,11 @@ process ORTHOFINDER_PREP {
     """
     # The fasta directory depends on whether we're running the mcl testing or not.
     orthofinder \\
-        -f ./ \\
+        -f input/ \\
         -t ${task.cpus} \\
         -op > tmp
 
-    mkdir ${output_directory} && mv OrthoFinder/ ${output_directory}
+    mkdir ${output_directory} && mv input/OrthoFinder/ ${output_directory}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
